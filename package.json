@@ -19,6 +19,11 @@
     "url": "https://github.com/SamvelTadevosyan/cryptoCompare/issues"
   },
   "homepage": "https://github.com/SamvelTadevosyan/cryptoCompare#readme",
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run lint:js"
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -43,6 +48,7 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.1",
+    "husky": "^4.2.3",
     "redux-logger": "^3.0.6",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
