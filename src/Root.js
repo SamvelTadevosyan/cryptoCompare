@@ -10,7 +10,7 @@ import AppProvider from 'src/pages/App';
 import { store as storeRedux } from './store';
 
 const GlobalStyle = injectGlobalStyle();
-console.log('Log ::: 6526 ::: ', injectGlobalStyle);
+
 const Root = () => (
   <Provider store={storeRedux}>
     <div>

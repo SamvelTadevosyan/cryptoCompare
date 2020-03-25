@@ -11,11 +11,6 @@ type AppProps = {};
 type AppState = {};
 
 class MainLayout extends React.PureComponent<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     return (
       <FlexBox>

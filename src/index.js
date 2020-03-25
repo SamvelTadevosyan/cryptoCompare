@@ -4,7 +4,7 @@ import Root from './Root';
 
 try {
   document.addEventListener('DOMContentLoaded', () => {
-    render(<div />, document.getElementById('app'));
+    render(<Root />, document.getElementById('app'));
   });
 } catch (err) {
   throw new Error(`Render error \n${err}`);

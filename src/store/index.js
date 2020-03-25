@@ -4,7 +4,7 @@ import {
   createAction,
   createReducer,
   configureStore,
-  getDefaultMiddleware
+  getDefaultMiddleware,
 } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 

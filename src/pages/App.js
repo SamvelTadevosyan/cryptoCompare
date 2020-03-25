@@ -10,11 +10,6 @@ type AppProps = {};
 type AppState = {};
 
 class App extends PureComponent<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     return (
       <FlexBox

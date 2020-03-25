@@ -13,9 +13,6 @@
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
     },
-    "import/resolver": {
-      "babel-module": {}
-    }
   },
   "rules": {
     "semi": [2, "always"],
