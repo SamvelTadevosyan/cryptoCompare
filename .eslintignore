@@ -1,0 +1,8 @@
+src/styles/*
+compiled/*
+configs/*
+**/public/
+**/node_modules/
+**/coverage/
+flow-typed/*
+dist/*
