@@ -1,20 +1,9 @@
 // @flow
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
+import Home from './Home';
 
 export const publicRoutes = () => (
-  <Switch>
-    <Redirect from="*" to="/" />
-    <Route
-      path="/"
-      component={
-        () => (
-          <div>
-            Installed
-          </div>
-        )
-      }
-    />
-  </Switch>
+  <Route path="/" component={Home} />
 );
