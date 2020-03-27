@@ -5,6 +5,8 @@ import { withRouter } from 'react-router';
 
 import { FlexBox } from 'src/styles/styled-components';
 
+import { publicRoutes } from './Routes';
+
 type AppProps = {};
 
 type AppState = {};
@@ -17,7 +19,7 @@ class App extends PureComponent<AppProps, AppState> {
         minHeight="100vh"
         alignItems="stretch"
       >
-        Installed
+        {publicRoutes()}
       </FlexBox>
     );
   }
