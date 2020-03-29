@@ -17,6 +17,7 @@ const margin = (props) => {
     horizontalM,
     verticalM,
     margin,
+    noColor,
   } = props;
 
   return `
@@ -52,8 +53,8 @@ const padding = (props) => {
   `;
 };
 
-const color = ({ color, theme }) => `
-  color: ${theme.colors[color] || color};
+const color = ({ noColor, color, theme }) => `
+  ${noColor ? '' : `color: ${theme.colors[color] || color}`};
 `;
 
 const font = ({ size, light, lineHeight, letterSpace, decoration, cursor, bold, background, fontStyle }) => `
