@@ -17,6 +17,7 @@ const currencyReducer = createReducer(initialState, {
         ? {
           ...item,
           price: action.payload.price ? action.payload.price : item.price,
+          prevPrice: action.payload.price ? item.price : item.prevPrice,
         }
         : item
       ),

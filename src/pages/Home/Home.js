@@ -1,24 +1,36 @@
 // @flow
 import React, {
+  useState,
   useEffect,
 } from 'react';
 
+import { Wrapper } from 'src/components';
 import { currenciesCCCAGG } from 'src/constants/currencies';
 import { FlexBox } from 'src/styles/styled-components';
 
 import { withRouter } from 'react-router';
 
+import { memoWrapper } from 'src/utils';
+
 import {
   getCurrencies,
 } from 'src/selectors';
 
+import {
+  CoinTable,
+} from './components';
+
 type HomeProps = {
   setUpdatedCurrencies: any,
-  initialCurrencies: () => Promise<*>
+  initialCurrencies: () => Promise<*>,
 };
 
 const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Element<typeof FlexBox> => {
   let socket = null;
+
+  // -------------- State -------------\\
+  const [isLoading, setIsLoading] = useState(0);
+  const [selectedCoinID, setSelectedCoinId] = useState(null);
 
   const currencies = getCurrencies();
 
@@ -43,9 +55,11 @@ const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Ele
       action: 'SubAdd',
       subs: currenciesCCCAGG,
     }));
+    setIsLoading(2);
   };
 
   useEffect(() => {
+    setIsLoading(1);
     initialCurrencies().then(() => {
       socket = new WebSocket(`${SOCKET_BASE_URL}?api_key=${API_KEY}`);
       socket.onopen = socketOnOpen;
@@ -56,20 +70,38 @@ const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Ele
     return (() => socket.close());
   }, []);
 
+  const handleRowClick = (rowData: Object) => {
+    setSelectedCoinId(rowData.id);
+  };
+
   return (
-    <FlexBox vertical>
-      Home
-      {
-        currencies.items && currencies.items.map(currency => (
-          <FlexBox
-            key={currency.id}
-          >
-            {currency.name} $ {currency.price}
-          </FlexBox>
-        ))
-      }
-    </FlexBox>
+    <Wrapper
+      padding="20px"
+      isBusy={isLoading}
+    >
+      <FlexBox
+        style={{
+          flexBasis: '30%',
+          maxWidth: '30%',
+        }}
+      >
+        <CoinTable
+          coins={currencies.items}
+          onRowClick={handleRowClick}
+        />
+      </FlexBox>
+      <FlexBox
+        justifyContent="center"
+        alignItems="center"
+        style={{
+          flexBasis: '70%',
+          maxWidth: '70%',
+        }}
+      >
+        {selectedCoinID}
+      </FlexBox>
+    </Wrapper>
   );
 };
 
-export default withRouter(Home);
+export default withRouter(memoWrapper(Home));

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="20px" viewBox="0 0 12 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title></title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+        <g id="Wireframe-elements" transform="translate(-896.000000, -1621.000000)" fill-rule="nonzero">
+            <g id="icon/sort-1" transform="translate(896.000000, 1621.000000)">
+                <path d="M6,0 L0,8.33333333 L12,8.33333333 L6,0 Z M8.87925,13.3333333 L6,17.3316667 L3.12075,13.3333333 L8.87925,13.3333333 Z M12,11.6666667 L0,11.6666667 L6,20 L12,11.6666667 Z" id="Shape"></path>
+            </g>
+        </g>
+</svg>

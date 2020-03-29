@@ -21,7 +21,7 @@ export default {
     darkBlue: '#12406E',
     alertDark: '#D32F2F',
     lightBlue: '#E9F9FF',
-    lightGrey: '#929292',
+    lightGrey: '#92929242',
     darkGreen: '#388E3C',
     lightPink: '#F48183',
     alertLight: '#F44336',
