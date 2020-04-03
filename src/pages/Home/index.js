@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import {
+  getPrice,
   getCurrencies,
   setUpdatedCurrencies,
 } from 'src/store/storeEffects/currency';
@@ -8,6 +9,7 @@ import {
 import Home from './Home';
 
 const mapDispatchToProps = dispatch => ({
+  getPrice: getPrice(),
   initialCurrencies: getCurrencies(dispatch),
   setUpdatedCurrencies: setUpdatedCurrencies(dispatch),
 });

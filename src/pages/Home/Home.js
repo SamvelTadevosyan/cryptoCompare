@@ -3,36 +3,37 @@ import React, {
   useState,
   useEffect,
 } from 'react';
+import { isEmpty } from 'lodash-es';
 
 import { Wrapper } from 'src/components';
 import { currenciesCCCAGG } from 'src/constants/currencies';
+
 import { FlexBox } from 'src/styles/styled-components';
 
 import { withRouter } from 'react-router';
 
 import { memoWrapper } from 'src/utils';
 
-import {
-  getCurrencies,
-} from 'src/selectors';
+import { getCurrencies } from 'src/selectors';
 
 import {
   CoinTable,
+  ConvertForm,
 } from './components';
 
 type HomeProps = {
-  setUpdatedCurrencies: any,
+  getPrice: () => void,
+  setUpdatedCurrencies: () => void,
   initialCurrencies: () => Promise<*>,
 };
 
-const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Element<typeof FlexBox> => {
+const Home = ({ setUpdatedCurrencies, initialCurrencies, getPrice }: HomeProps): React.Element<typeof FlexBox> => {
   let socket = null;
+  const currencies = getCurrencies();
 
   // -------------- State -------------\\
   const [isLoading, setIsLoading] = useState(0);
-  const [selectedCoinID, setSelectedCoinId] = useState(null);
-
-  const currencies = getCurrencies();
+  const [selectedCoin, setSelectedCoin] = useState(currencies.items[0]);
 
   const handleSocketConnectionClose = () => {
     if (socket) {
@@ -47,7 +48,7 @@ const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Ele
     if (parseInt(message.TYPE, 10) === 5) {
       setUpdatedCurrencies(message);
     }
-    handleSocketConnectionClose();
+    // handleSocketConnectionClose();
   };
 
   const socketOnOpen = () => {
@@ -70,8 +71,14 @@ const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Ele
     return (() => socket.close());
   }, []);
 
+  useEffect(() => {
+    if (isEmpty(selectedCoin)) {
+      setSelectedCoin(currencies.items[0]);
+    }
+  }, [currencies]);
+
   const handleRowClick = (rowData: Object) => {
-    setSelectedCoinId(rowData.id);
+    setSelectedCoin(rowData);
   };
 
   return (
@@ -98,7 +105,15 @@ const Home = ({ setUpdatedCurrencies, initialCurrencies }: HomeProps): React.Ele
           maxWidth: '70%',
         }}
       >
-        {selectedCoinID}
+        {
+          !isEmpty(selectedCoin) && (
+            <ConvertForm
+              getPrice={getPrice}
+              selectedCoin={selectedCoin}
+              selectCoin={setSelectedCoin}
+            />
+          )
+        }
       </FlexBox>
     </Wrapper>
   );
