@@ -25,3 +25,100 @@ export const currencyName = [
   'LTC',
   'LINK',
 ];
+
+export const firstDropDown = [
+  {
+    id: 1,
+    title: 'BTC',
+    data: {
+      value: 'BTC',
+    },
+  },
+  {
+    id: 2,
+    title: 'ETH',
+    data: {
+      value: 'ETH',
+    },
+  },
+  {
+    id: 3,
+    title: 'BCH',
+    data: {
+      value: 'BCH',
+    },
+  },
+  {
+    id: 4,
+    title: 'BSV',
+    data: {
+      value: 'BSV',
+    },
+  },
+  {
+    id: 5,
+    title: 'EOS',
+    data: {
+      value: 'EOS',
+    },
+  },
+  {
+    id: 6,
+    title: 'XRP',
+    data: {
+      value: 'XRP',
+    },
+  },
+  {
+    id: 7,
+    title: 'ETC',
+    data: {
+      value: 'ETC',
+    },
+  },
+  {
+    id: 8,
+    title: 'OKB',
+    data: {
+      value: 'OKB',
+    },
+  },
+  {
+    id: 9,
+    title: 'LTC',
+    data: {
+      value: 'LTC',
+    },
+  },
+  {
+    id: 10,
+    title: 'LINK',
+    data: {
+      value: 'LINK',
+    },
+  },
+];
+
+export const secondDropDown = [
+  {
+    id: 1,
+    title: 'USD',
+    data: {
+      value: 'USD',
+    },
+  },
+  {
+    id: 2,
+    title: 'EUR',
+    data: {
+      value: 'EUR',
+    },
+  },
+  {
+    id: 3,
+    title: 'JPY',
+    data: {
+      value: 'JPY',
+    },
+  },
+];
